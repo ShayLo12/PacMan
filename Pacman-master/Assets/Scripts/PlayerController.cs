@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 
     private bool _deadPlaying = false;
 
-    private int count
 
     // Use this for initialization
     void Start()
@@ -37,20 +36,9 @@ public class PlayerController : MonoBehaviour
         SM = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
         GUINav = GameObject.Find("UI Manager").GetComponent<GameGUINavigation>();
         _dest = transform.position;
-        count = 0
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("pacdot"))
-        {
-            other.gameObject.SetActive(false);
-            count = count + 1; 
-        }
-        if (count >= 348) 
-        {
-            transform.position = new Vector3(-51f, 21.2f, 0.0f); 
-        }
-    }
+    
+    
 
     // Update is called once per frame
     void FixedUpdate()
