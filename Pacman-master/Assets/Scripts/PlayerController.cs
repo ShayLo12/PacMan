@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
         GUINav = GameObject.Find("UI Manager").GetComponent<GameGUINavigation>();
         _dest = transform.position;
     }
-    
-    
 
     // Update is called once per frame
     void FixedUpdate()
