@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _deadPlaying = false;
 
+    private int count
+
     // Use this for initialization
     void Start()
     {
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
         SM = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
         GUINav = GameObject.Find("UI Manager").GetComponent<GameGUINavigation>();
         _dest = transform.position;
+        count = 0
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -42,7 +46,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             count = count + 1; 
         }
-        if (count == 348) 
+        if (count >= 348) 
         {
             transform.position = new Vector3(-51f, 21.2f, 0.0f); 
         }
