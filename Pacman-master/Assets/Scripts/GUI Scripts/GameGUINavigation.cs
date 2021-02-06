@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Text.RegularExpressions;
@@ -150,7 +150,7 @@ public class GameGUINavigation : MonoBehaviour {
     IEnumerator AddScore(string name, int score)
     {
         string privateKey = "pKey";
-        string AddScoreURL = "http://ilbeyli.byethost18.com/addscore.php?";
+        string AddScoreURL = "";
         string hash = Md5Sum(name + score + privateKey);
 
         Debug.Log("Name: " + name + " Escape: " + WWW.EscapeURL(name));

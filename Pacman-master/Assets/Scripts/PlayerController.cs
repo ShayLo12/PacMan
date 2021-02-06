@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private bool _deadPlaying = false;
 
+    private int currentScore;
 
     // Use this for initialization
     void Start()
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         SM = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
         GUINav = GameObject.Find("UI Manager").GetComponent<GameGUINavigation>();
         _dest = transform.position;
+        currentScore = 0;
     }
 
     // Update is called once per frame
@@ -55,6 +57,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D col) 
+    {
+        if (col.gameObject.tag == "pacdot")  
+        {
+            currentScore = 1;
+            currentScore ++;
+            if (currentScore == 3300)
+            {
+                transform.position = new Vector3(-51f, 21.2f, 0.0f); 
+            }
+        }
+    }
+
     IEnumerator PlayDeadAnimation()
     {
         _deadPlaying = true;
@@ -71,7 +86,6 @@ public class PlayerController : MonoBehaviour
             else
                 GUINav.H_ShowGameOverScreen();
         }
-
         else
             GM.ResetScene();
     }
@@ -144,6 +158,5 @@ public class PlayerController : MonoBehaviour
 
         Instantiate(points.pointSprites[killstreak - 1], transform.position, Quaternion.identity);
         GameManager.score += (int)Mathf.Pow(2, killstreak) * 100;
-
     }
 }
