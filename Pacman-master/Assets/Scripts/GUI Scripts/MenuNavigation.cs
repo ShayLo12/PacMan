@@ -17,12 +17,6 @@ public class MenuNavigation : MonoBehaviour {
 	{
 		Application.LoadLevel("game");
 	}
-	
-	public void HighScores()
-	{
-		Application.LoadLevel("scores");
-		
-	}
 
     public void Credits()
     {
