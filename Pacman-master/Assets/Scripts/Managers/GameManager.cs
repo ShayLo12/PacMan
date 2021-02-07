@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -99,6 +100,11 @@ public class GameManager : MonoBehaviour
     {
         if (scared && _timeToCalm <= Time.time)
             CalmGhosts();
+
+        if (PlayerController.currentScore == 330)
+        {
+            SceneManager.LoadScene("game 1");
+        }
 
     }
 
