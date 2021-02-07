@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _deadPlaying = false;
 
-    private int currentScore;
+    static public int currentScore;
+
 
     // Use this for initialization
     void Start()
@@ -55,20 +56,15 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine("PlayDeadAnimation");
                 break;
         }
+
+        if (currentScore == 330)
+        {
+            transform.position = new Vector3(-51f, 21.2f, 0.0f);
+            currentScore = currentScore + 1;
+        }
+
     }
 
-    void OnCollisionEnter2D(Collision2D col) 
-    {
-        if (col.gameObject.tag == "pacdot")  
-        {
-            currentScore = 1;
-            currentScore ++;
-            if (currentScore == 3300)
-            {
-                transform.position = new Vector3(-51f, 21.2f, 0.0f); 
-            }
-        }
-    }
 
     IEnumerator PlayDeadAnimation()
     {
@@ -158,5 +154,9 @@ public class PlayerController : MonoBehaviour
 
         Instantiate(points.pointSprites[killstreak - 1], transform.position, Quaternion.identity);
         GameManager.score += (int)Mathf.Pow(2, killstreak) * 100;
+
+
     }
+
+
 }
