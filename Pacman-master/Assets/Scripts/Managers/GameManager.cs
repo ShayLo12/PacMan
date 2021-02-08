@@ -106,6 +106,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("game 1");
         }
 
+        if  (PlayerController.currentScore == 660)
+        {
+            SceneManager.LoadScene("Winning");
+        }
+
     }
 
     public void ResetScene()

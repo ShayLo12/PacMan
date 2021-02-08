@@ -57,12 +57,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        if (currentScore == 330)
-        {
-            transform.position = new Vector3(-51f, 21.2f, 0.0f);
-            currentScore = currentScore + 1;
-        }
-
     }
 
 
